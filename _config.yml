@@ -1,8 +1,8 @@
-name: Coaster
+name: Rollercoaster
 markdown: redcarpet
 pygments: true
 author: odevrel
 port: 3333
 paginate: 1
 permalink: pretty
-baseurl: "http://operasoftware.github.io/coaster"
+baseurl: "http://operasoftware.github.io/rollercoaster"
