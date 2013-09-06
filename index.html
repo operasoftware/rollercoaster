@@ -36,7 +36,7 @@ title: Coaster
 {% for post in paginator.posts %}
 	<article>
 	  <div class="content">
-	  	<a href="http://{{ post.website }}"><img src="postimages/{{ post.image }}" alt="Screenshot of {{ post.website }}" class="screenshot"></a>
+	  	<a href="http://{{ post.website }}"><img src="{{ site.baseurl }}/postimages/{{ post.image }}" alt="Screenshot of {{ post.website }}" class="screenshot"></a>
 	  	<div>Source: <a href="http://{{ post.website }}">{{ post.website }}</a></div>
 	    {{ post.content }}
 	    <p class="permalink"><a href="{{ post.url }}" title="permalink">Permalink</a></p>
