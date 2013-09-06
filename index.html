@@ -7,9 +7,9 @@ title: Coaster
 {% if paginator.previous_page %}
   <div class="previous text-right">
     {% if paginator.previous_page == 1 %}
-      <a href="/"><span class="glyphicon glyphicon-chevron-left"></span></a>
+      <a href="{{ site.baseurl }}/"><span class="glyphicon glyphicon-chevron-left"></span></a>
     {% else %}
-      <a href="{{ paginator.previous_page_path }}"><span class="glyphicon glyphicon-chevron-left"></span></a>
+      <a href="{{ site.baseurl }}{{ paginator.previous_page_path }}"><span class="glyphicon glyphicon-chevron-left"></span></a>
     {% endif %}
   </div>
 {% else %}
@@ -22,7 +22,7 @@ title: Coaster
 <div class="col-sm-2 col-sm-push-8 col-xs-6" style="border: 1px solid green;">
 {% if paginator.next_page %}
   <div class="next">
-    <a href="{{ paginator.next_page_path }}"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    <a href="{{ site.baseurl }}{{ paginator.next_page_path }}"><span class="glyphicon glyphicon-chevron-right"></span></a>
   </div>
 {% else %}
   <div class="next disabled">
