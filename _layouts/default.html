@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>{{ page.title }}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="/css/bootstrap-bootswatch-slate.min.css">
+		<link rel="stylesheet" href="/css/custom.css">
+	</head>
+	<body id="coaster">
+		<div class="container">
+			<div class="row">
+				<header class="col-sm-8 col-sm-offset-2" style="border: 1px solid red">
+					<h1><a href="/">{{ site.name }}</a></h1>
+				</header>
+			</div>
+			<div class="row">
+
+					{{ content }}
+
+			</div>
+			<div class="row">
+				<footer class="col-sm-8 col-sm-offset-2" style="border: 1px solid yellow">
+					footer info
+				</footer>
+			</div>
+		</div><!-- /.container -->
+	</body>
+</html>

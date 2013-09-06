@@ -1,0 +1,46 @@
+---
+layout: default
+title: Coaster
+---
+
+<div class="col-sm-2 col-xs-6" style="border: 1px solid pink;">
+{% if paginator.previous_page %}
+  <div class="previous text-right">
+    {% if paginator.previous_page == 1 %}
+      <a href="/"><span class="glyphicon glyphicon-chevron-left"></span></a>
+    {% else %}
+      <a href="{{ paginator.previous_page_path }}"><span class="glyphicon glyphicon-chevron-left"></span></a>
+    {% endif %}
+  </div>
+{% else %}
+  <div class="previous disabled text-right">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </div>
+{% endif %}
+</div>
+
+<div class="col-sm-2 col-sm-push-8 col-xs-6" style="border: 1px solid green;">
+{% if paginator.next_page %}
+  <div class="next">
+    <a href="{{ paginator.next_page_path }}"><span class="glyphicon glyphicon-chevron-right"></span></a>
+  </div>
+{% else %}
+  <div class="next disabled">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </div>
+{% endif %}
+</div>
+
+
+<main class="col-sm-8 col-sm-pull-2" style="border: 1px solid blue;">
+{% for post in paginator.posts %}
+	<article>
+	  <div class="content">
+	  	<a href="http://{{ post.website }}"><img src="/postimages/{{ post.image }}" alt="Screenshot of {{ post.website }}" class="screenshot"></a>
+	  	<div>Source: <a href="http://{{ post.website }}">{{ post.website }}</a></div>
+	    {{ post.content }}
+	    <p class="permalink"><a href="{{ post.url }}" title="permalink">Permalink</a></p>
+	  </div>
+	</article>
+{% endfor %}
+</main>
