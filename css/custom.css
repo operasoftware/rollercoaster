@@ -2,6 +2,6 @@
 	.previous .glyphicon, .next .glyphicon {height: 600px; padding-top: 250px;}
 	.glyphicon {font-size: 40px;}
 }
-/* * {border: none !important;}*/
+ * {border: none !important;}
 .screenshot {width: 100%; max-width: 768px;}
 .disabled {opacity: 0.1;}
