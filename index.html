@@ -3,36 +3,36 @@ layout: default
 title: Rollercoaster
 ---
 
-<div class="col-sm-2 col-xs-6" style="border: 1px solid pink;">
+<div class="col-sm-2 col-xs-6">
 {% if paginator.previous_page %}
-  <div class="previous text-right">
+  <div class="previous">
     {% if paginator.previous_page == 1 %}
-      <a href="{{ site.baseurl }}/"><span class="glyphicon glyphicon-chevron-left"></span></a>
+      <a href="{{ site.baseurl }}/"><span class="glyphicon glyphicon-chevron-left"></span> <span class="word">prev<span>ious</span></span></a>
     {% else %}
-      <a href="{{ site.baseurl }}{{ paginator.previous_page_path }}"><span class="glyphicon glyphicon-chevron-left"></span></a>
+      <a href="{{ site.baseurl }}{{ paginator.previous_page_path }}"><span class="glyphicon glyphicon-chevron-left"></span> <span class="word">prev<span>ious</span></span></a>
     {% endif %}
   </div>
 {% else %}
-  <div class="previous disabled text-right">
-    <span class="glyphicon glyphicon-chevron-left"></span>
+  <div class="previous disabled">
+    <span class="glyphicon glyphicon-chevron-left"></span> <span class="word">prev<span>ious</span></span>
   </div>
 {% endif %}
 </div>
 
-<div class="col-sm-2 col-sm-push-8 col-xs-6" style="border: 1px solid green;">
+<div class="col-sm-2 col-sm-push-8 col-xs-6">
 {% if paginator.next_page %}
   <div class="next">
-    <a href="{{ site.baseurl }}{{ paginator.next_page_path }}"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    <a href="{{ site.baseurl }}{{ paginator.next_page_path }}"><span class="word">next</span> <span class="glyphicon glyphicon-chevron-right"></span></a>
   </div>
 {% else %}
   <div class="next disabled">
-    <span class="glyphicon glyphicon-chevron-right"></span>
+    <span class="word">next</span> <span class="glyphicon glyphicon-chevron-right"></span>
   </div>
 {% endif %}
 </div>
 
 
-<main class="col-sm-8 col-sm-pull-2" style="border: 1px solid blue;">
+<main class="col-sm-8 col-sm-pull-2">
 {% for post in paginator.posts %}
 	<article>
 	  <div class="content">

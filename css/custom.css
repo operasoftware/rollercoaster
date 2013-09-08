@@ -1,7 +1,82 @@
+body {
+	background: #222 url(img-noise-200x200.png) 0 0 repeat;
+	color: #ddd;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 300;
+}
+
+/* header */
+
+header h1, header p {
+	text-align: center;
+	text-shadow: #000 0 0 15px;
+}
+header h1 {
+	font-family: 'Nothing You Could Do', cursive;
+	font-size: 3em;
+	font-weight: 400; 
+}
+header p {
+	font-size: 1.3em;
+}
+@media (min-width: 500px) {
+	header h1 {
+		font-size: 3.8em;
+	}
+}
+@media (min-width: 992px) {
+	header h1 {
+		font-size: 5em;
+	}
+}
+header h1 a, header h1 a:hover {
+	color: #ddd; text-decoration: none;
+}
+
+/* /header */
+
+/* navigation buttons */
+.previous, .next {
+	height: 60px;
+	white-space:nowrap;
+	text-overflow: ellipsis;
+}
+.glyphicon {
+	font-size: 40px;
+	color: #ddd;
+	height: 1.4em;
+}
+.next {
+	text-align: right;
+}
+.previous a, .next a {
+	width: 100%;
+	height: 100%;
+	color: #ddd;
+	text-decoration: none;
+	display: block;
+}
 @media (min-width: 768px) {
 	.previous .glyphicon, .next .glyphicon {height: 600px; padding-top: 250px;}
-	.glyphicon {font-size: 40px;}
 }
- * {border: none !important;}
+.word {
+	font-size: 1.3em;
+	position: relative;
+	top: -0.6em;
+}
+@media (min-width: 768px) and (max-width: 991px) {
+	.word span {
+		display: none;
+	}
+	.previous .word::after {content: ".";}
+}
+@media (max-width: 767px) {
+	main {
+		margin-top: 60px;
+	}
+}
+
+/* /navigation buttons */
+
 .screenshot {width: 100%; max-width: 768px;}
 .disabled {opacity: 0.1;}
