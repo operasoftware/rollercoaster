@@ -13,16 +13,11 @@ header h1, header p {
 }
 header h1 {
 	font-family: 'Nothing You Could Do', cursive;
-	font-size: 3em;
+	font-size: 3.8em;
 	font-weight: 400; 
 }
 header p {
 	font-size: 1.3em;
-}
-@media (min-width: 500px) {
-	header h1 {
-		font-size: 3.8em;
-	}
 }
 @media (min-width: 992px) {
 	header h1 {
@@ -57,7 +52,23 @@ header h1 a, header h1 a:hover {
 	display: block;
 }
 @media (min-width: 768px) {
-	.previous .glyphicon, .next .glyphicon {height: 600px; padding-top: 250px;}
+	.previous .glyphicon, .next .glyphicon {
+		height: 600px; 
+		padding-top: 250px; 
+	}
+	.previous a, .next a {
+		height: 700px;
+	}
+}
+@media (min-width: 992px) {
+	.previous a, .next a {
+		height: 900px;
+	}
+}
+@media (min-width: 1200px) {
+	.previous a, .next a {
+		height: 1100px;
+	}
 }
 .word {
 	font-size: 1.3em;
@@ -70,13 +81,26 @@ header h1 a, header h1 a:hover {
 	}
 	.previous .word::after {content: ".";}
 }
+.disabled {
+	opacity: 0.1;
+}
+
 @media (max-width: 767px) {
 	main {
-		margin-top: 60px;
+		margin-top: 60px; /* otherwise buttons don't work */
 	}
 }
 
 /* /navigation buttons */
+main {border: 1px solid blue;}
 
 .screenshot {width: 100%; max-width: 768px;}
-.disabled {opacity: 0.1;}
+
+@media (min-width: 1200px) {
+	.screenshot {
+		width: 768px;
+		position: relative;
+		left: -10px;
+	}
+}
+
