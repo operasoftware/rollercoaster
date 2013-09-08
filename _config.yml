@@ -4,5 +4,6 @@ pygments: true
 author: odevrel
 port: 3333
 paginate: 1
+paginate_path: ":num"
 permalink: pretty
 baseurl: "http://operasoftware.github.io/rollercoaster"
