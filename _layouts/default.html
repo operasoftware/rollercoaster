@@ -27,7 +27,7 @@
 		}
 		</style>
 	</head>
-	<body id="rollercoaster">
+	<body id="rollercoaster"{% for post in paginator.posts %} class="page"{% endfor %}>
 		<div id="bg"></div>
 		<div class="container">
 			<div class="row">

@@ -98,7 +98,7 @@ header h1 a, header h1 a:hover {
 }
 
 @media (max-width: 767px) {
-	main {
+	.page main {
 		margin-top: 60px; /* otherwise buttons don't work */
 	}
 }
