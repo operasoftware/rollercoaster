@@ -1,5 +1,5 @@
 body {
-	background: #222 url(img-noise-200x200.png) 0 0 repeat;
+	background: #0D0D0D url(img-noise-200x200.png) 0 0 repeat;
 	color: #ddd;
 	font-family: 'Source Sans Pro', sans-serif;
 	font-weight: 300;
@@ -12,7 +12,6 @@ header h1, header p {
 	text-shadow: #000 0 0 15px;
 }
 header h1 {
-	font-family: 'Nothing You Could Do', cursive;
 	font-family: 'Faster One', cursive;
 	font-size: 2.3em;
 	font-weight: 400; 

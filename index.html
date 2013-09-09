@@ -1,49 +1,47 @@
 ---
 layout: default
-title: Rollercoaster
 ---
 
 <div class="col-sm-2 col-xs-6">
 {% if paginator.previous_page %}
-  <div class="previous">
-    {% if paginator.previous_page == 1 %}
-      <a href="{{ site.baseurl }}/"><span class="glyphicon glyphicon-chevron-left"></span> <span class="word">prev<span>ious</span></span></a>
-    {% else %}
-      <a href="{{ site.baseurl }}{{ paginator.previous_page_path }}"><span class="glyphicon glyphicon-chevron-left"></span> <span class="word">prev<span>ious</span></span></a>
-    {% endif %}
-  </div>
+	<div class="previous">
+		{% if paginator.previous_page == 1 %}
+			<a href="{{ site.baseurl }}/"><span class="glyphicon glyphicon-chevron-left"></span> <span class="word">prev<span>ious</span></span></a>
+		{% else %}
+			<a href="{{ site.baseurl }}{{ paginator.previous_page_path }}"><span class="glyphicon glyphicon-chevron-left"></span> <span class="word">prev<span>ious</span></span></a>
+		{% endif %}
+	</div>
 {% else %}
-  <div class="previous disabled">
-    <span class="glyphicon glyphicon-chevron-left"></span> <span class="word">prev<span>ious</span></span>
-  </div>
+	<div class="previous disabled">
+		<span class="glyphicon glyphicon-chevron-left"></span> <span class="word">prev<span>ious</span></span>
+	</div>
 {% endif %}
 </div>
 
 <div class="col-sm-2 col-sm-push-8 col-xs-6">
 {% if paginator.next_page %}
-  <div class="next">
-    <a href="{{ site.baseurl }}{{ paginator.next_page_path }}"><span class="word">next</span> <span class="glyphicon glyphicon-chevron-right"></span></a>
-  </div>
+	<div class="next">
+		<a href="{{ site.baseurl }}{{ paginator.next_page_path }}"><span class="word">next</span> <span class="glyphicon glyphicon-chevron-right"></span></a>
+	</div>
 {% else %}
-  <div class="next disabled">
-    <span class="word">next</span> <span class="glyphicon glyphicon-chevron-right"></span>
-  </div>
+	<div class="next disabled">
+		<span class="word">next</span> <span class="glyphicon glyphicon-chevron-right"></span>
+	</div>
 {% endif %}
 </div>
-
 
 <main class="col-sm-8 col-sm-pull-2">
 {% for post in paginator.posts %}
 	<article>
-	  <figure>
-	  	<a href="http://{{ post.website }}"><img src="{{ site.baseurl }}/postimages/{{ post.image }}" alt="Screenshot of {{ post.website }}" class="screenshot"></a>
-	  </figure>
-	  <div id="content">
-	  	<section id="site">Featured site: <a href="http://{{ post.website }}">{{ post.website }}</a></section>
-	  	<section id="commentary">
-	  	{{ post.content }}
-	  	</section>
-	  	<section id="permalink"><a href="{{ site.baseurl }}{{ post.url }}" title="permalink" rel="bookmark"># {{ post.date| date: "%Y-%m-%d" }}</a></section>
+		<figure>
+			<a href="http://{{ post.website }}"><img src="{{ site.baseurl }}/postimages/{{ post.image }}" alt="Screenshot of {{ post.website }}" class="screenshot"></a>
+		</figure>
+		<div id="content">
+			<section id="site">Featured site: <a href="http://{{ post.website }}">{{ post.website }}</a></section>
+			<section id="commentary">
+			{{ post.content }}
+			</section>
+			<section id="permalink"><a href="{{ site.baseurl }}{{ post.url }}" title="permalink" rel="bookmark"># {{ post.date| date: "%Y-%m-%d" }}</a></section>
 		</div>
 	</article>
 {% endfor %}
