@@ -43,7 +43,7 @@ title: Rollercoaster
 	  	<section id="commentary">
 	  	{{ post.content }}
 	  	</section>
-	  	<section id="permalink"><a href="{{ post.url }}" title="permalink" rel="bookmark"># {{ post.date| date: "%Y-%m-%d" }}</a></section>
+	  	<section id="permalink"><a href="{{ site.baseurl }}{{ post.url }}" title="permalink" rel="bookmark"># {{ post.date| date: "%Y-%m-%d" }}</a></section>
 		</div>
 	</article>
 {% endfor %}

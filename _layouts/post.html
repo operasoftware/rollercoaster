@@ -1,16 +1,17 @@
 ---
 layout: default
 ---
-<main class="col-sm-8 col-sm-offset-2" style="border: 1px solid blue;">
+<main class="col-sm-8 col-sm-offset-2">
 	<article>
-		<h2>{{ page.title }}</h2>
-		<p class="meta">{{ page.date | date_to_string }}</p>
-
-		<div class="post">
-			<img src="{{ site.baseurl }}/postimages/{{ page.image }}" height="512" width="384" alt="Screenshot of {{ page.website }}">
-			<div>Source: <a href="http://{{ page.website }}">{{ page.website }}</a></div>
-			{{ content }}
+		<figure>
+			<a href="http://{{ page.website }}"><img src="{{ site.baseurl }}/postimages/{{ page.image }}" alt="Screenshot of {{ page.website }}" class="screenshot"></a>
+		</figure>
+		<div id="content">
+	  	<section id="site">Featured site: <a href="http://{{ page.website }}">{{ page.website }}</a></section>
+	  	<section id="commentary">
+	  		{{ content }}
+	  	</section>
+	  	<section id="permalink"><a href="{{ site.baseurl }}{{ page.url }}" title="permalink" rel="bookmark"># {{ page.date| date: "%Y-%m-%d" }}</a></section>
 		</div>
 	</article>
 </main>
-

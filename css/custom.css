@@ -14,8 +14,19 @@ header h1, header p {
 header h1 {
 	font-family: 'Nothing You Could Do', cursive;
 	font-family: 'Faster One', cursive;
-	font-size: 3.8em;
+	font-size: 2.3em;
 	font-weight: 400; 
+}
+@media (min-width: 530px) {
+	header h1 {
+		font-size: 3.8em;
+	}
+}
+
+@media (min-width: 992px) {
+	header h1 {
+		font-size: 5em;
+	}
 }
 header p {
 	font-size: 1.3em;
@@ -24,11 +35,6 @@ header p {
 @media (min-width: 768px) {
 	header p {
 		margin-bottom: 2em;
-	}
-}
-@media (min-width: 992px) {
-	header h1 {
-		font-size: 5em;
 	}
 }
 header h1 a, header h1 a:hover {
