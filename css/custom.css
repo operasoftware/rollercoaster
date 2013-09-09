@@ -13,11 +13,18 @@ header h1, header p {
 }
 header h1 {
 	font-family: 'Nothing You Could Do', cursive;
+	font-family: 'Faster One', cursive;
 	font-size: 3.8em;
 	font-weight: 400; 
 }
 header p {
 	font-size: 1.3em;
+	font-style: italic;
+}
+@media (min-width: 768px) {
+	header p {
+		margin-bottom: 2em;
+	}
 }
 @media (min-width: 992px) {
 	header h1 {
@@ -92,7 +99,6 @@ header h1 a, header h1 a:hover {
 }
 
 /* /navigation buttons */
-main {border: 1px solid blue;}
 
 .screenshot {width: 100%; max-width: 768px;}
 
@@ -103,4 +109,34 @@ main {border: 1px solid blue;}
 		left: -10px;
 	}
 }
-
+article {
+	font-size: 1.3em;
+}
+article a, article a:hover {
+	font-weight: 600;
+	color: #ddd;
+}
+#content {
+	background-color: hsla(0, 0%, 15%, 0.5);
+	padding: 1em;
+	margin: 1em 0 0 0;
+	border-radius: 4px;
+}
+#content #site {
+	margin: 0 0 1em 0;
+	text-align: center;
+	font-style: italic;
+	font-size: 0.9em;
+}
+#permalink {
+	text-align: right;
+	font-size: 0.9em;
+}
+footer {
+	margin: 0.5em 0 0 0;
+	text-align: right;
+	color: #333;
+}
+footer a, footer a:hover {
+	color: #333;
+}

@@ -35,12 +35,16 @@ title: Rollercoaster
 <main class="col-sm-8 col-sm-pull-2">
 {% for post in paginator.posts %}
 	<article>
-	  <div class="content">
+	  <figure>
 	  	<a href="http://{{ post.website }}"><img src="{{ site.baseurl }}/postimages/{{ post.image }}" alt="Screenshot of {{ post.website }}" class="screenshot"></a>
-	  	<div>Source: <a href="http://{{ post.website }}">{{ post.website }}</a></div>
-	    {{ post.content }}
-	    <p class="permalink"><a href="{{ post.url }}" title="permalink">Permalink</a></p>
-	  </div>
+	  </figure>
+	  <div id="content">
+	  	<section id="site">Featured site: <a href="http://{{ post.website }}">{{ post.website }}</a></section>
+	  	<section id="commentary">
+	  	{{ post.content }}
+	  	</section>
+	  	<section id="permalink"><a href="{{ post.url }}" title="permalink" rel="bookmark"># {{ post.date| date: "%Y-%m-%d" }}</a></section>
+		</div>
 	</article>
 {% endfor %}
 </main>
