@@ -1,0 +1,31 @@
+---
+layout: nil
+---
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+	<title>Rollercoaster</title>
+	<link href="{{ site.baseurl }}/"/>
+	<link type="application/atom+xml" rel="self" href="{{ site.baseurl }}/atom.xml"/>
+	<updated>{{ site.time | date_to_xmlschema }}</updated>
+	<id>http://rollercoaster.io/</id>
+	<author>
+		<name>Rollercoaster editor</name>
+	</author>
+
+	{% for post in site.posts %}
+	<entry>
+		<id>{{ site.baseurl }}{{ post.id }}</id>
+		<link type="text/html" rel="alternate" href="{{ site.baseurl }}{{ post.url }}"/>
+		<title>{{ post.title }}</title>
+		<published>{{ post.date | date_to_xmlschema }}</published>
+		<updated>{{ post.date | date_to_xmlschema }}</updated>
+		<author>
+			<name>Rollercoaster editor</name>
+			<uri>http://rollercoaster.io/</uri>
+		</author>
+		<content type="html">{{ post.content | xml_escape }}</content>
+	</entry>
+	{% endfor %}
+
+</feed>
