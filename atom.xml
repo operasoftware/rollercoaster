@@ -17,14 +17,14 @@ layout: nil
 	<entry>
 		<id>{{ site.baseurl }}{{ post.id }}</id>
 		<link type="text/html" rel="alternate" href="{{ site.baseurl }}{{ post.url }}"/>
-		<title>{{ post.title }}</title>
+		<title>{{ post.website }}</title>
 		<published>{{ post.date | date_to_xmlschema }}</published>
 		<updated>{{ post.date | date_to_xmlschema }}</updated>
 		<author>
 			<name>Rollercoaster editor</name>
 			<uri>http://rollercoaster.io/</uri>
 		</author>
-		<content type="html">{{ post.content | xml_escape }}</content>
+		<content type="html"><div><a href="http://{{ post.website }}/"><img src="{{ site.baseurl }}/postimages/{{ post.image }}" alt="Screenshot of {{ post.website }}"/></a></div><div>Featured site: <a href="http://{{ post.website }}/">{{ post.website }}</a></div>{{ post.content | xml_escape }}</content>
 	</entry>
 	{% endfor %}
 
