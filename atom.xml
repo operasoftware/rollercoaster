@@ -24,7 +24,7 @@ layout: nil
 			<name>Rollercoaster editor</name>
 			<uri>http://rollercoaster.io/</uri>
 		</author>
-		<content type="html"><div><a href="http://{{ post.website }}/"><img src="{{ site.baseurl }}/postimages/{{ post.image }}" alt="Screenshot of {{ post.website }}"/></a></div><div>Featured site: <a href="http://{{ post.website }}/">{{ post.website }}</a></div>{{ post.content | xml_escape }}</content>
+		<content type="html">&lt;p&gt;&lt;a href=&quot;http://{{ post.website }}/&quot;&gt;&lt;img src=&quot;{{ site.baseurl }}/postimages/{{ post.image }}&quot; alt=&quot;Screenshot of {{ post.website }}&quot;/&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Featured site: &lt;a href=&quot;http://{{ post.website }}/&quot;&gt;{{ post.website }}&lt;/a&gt;&lt;/p&gt;{{ post.content | xml_escape }}</content>
 	</entry>
 	{% endfor %}
 
