@@ -6,7 +6,7 @@ layout: nil
 
 	<title>Rollercoaster</title>
 	<link href="{{ site.baseurl }}/"/>
-	<link type="application/atom+xml" rel="self" href="{{ site.baseurl }}/atom.xml"/>
+	<link type="application/atom+xml" rel="self" href="{{ site.baseurl }}/feed.atom"/>
 	<updated>{{ site.time | date_to_xmlschema }}</updated>
 	<id>http://rollercoaster.io/</id>
 	<author>
