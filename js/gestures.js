@@ -21,11 +21,11 @@ document.addEventListener("DOMContentLoaded", function() {
       }
   });
 
-  Hammer(swipePane).on("swipeleft", function(evt) {
+  Hammer(swipePane).on("swiperight", function(evt) {
     if(previousLink) window.location.href = previousLink.href;
   });
 
-  Hammer(swipePane).on("swiperight", function(evt) {
+  Hammer(swipePane).on("swipeleft", function(evt) {
     if(nextLink) window.location.href = nextLink.href;
   });
 
