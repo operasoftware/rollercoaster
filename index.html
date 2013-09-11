@@ -2,8 +2,6 @@
 layout: default
 ---
 
-<div id="swipePane">
-
 <div class="col-sm-2 col-xs-6">
 {% if paginator.previous_page %}
   <div class="previous">
@@ -14,8 +12,10 @@ layout: default
     {% endif %}
   </div>
 {% else %}
-  <div class="previous disabled">
-    <span class="glyphicon glyphicon-chevron-left"></span> <span class="word">prev<span>ious</span></span>
+  <div class="previous">
+    <span class="disabled">
+      <span class="glyphicon glyphicon-chevron-left"></span> <span class="word">prev<span>ious</span></span>
+    </span>
   </div>
 {% endif %}
 </div>
@@ -26,8 +26,10 @@ layout: default
     <a href="{{ site.baseurl }}{{ paginator.next_page_path }}"><span class="word">next</span> <span class="glyphicon glyphicon-chevron-right"></span></a>
   </div>
 {% else %}
-  <div class="next disabled">
-    <span class="word">next</span> <span class="glyphicon glyphicon-chevron-right"></span>
+  <div class="next">
+    <span class="disabled">
+      <span class="word">next</span> <span class="glyphicon glyphicon-chevron-right"></span>
+    </span>
   </div>
 {% endif %}
 </div>
@@ -48,5 +50,3 @@ layout: default
   </article>
 {% endfor %}
 </main>
-
-</div>

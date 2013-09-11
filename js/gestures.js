@@ -1,25 +1,32 @@
 document.addEventListener("DOMContentLoaded", function() {
-  
+
   var swipePane = document.querySelector('#swipePane'),
       previousLink = document.querySelector('.previous a'),
       nextLink = document.querySelector('.next a');
   
+  var startX, startY;
+  
   swipePane.addEventListener('touchstart', function(evt) {
-      if (evt.target.nodeName !== 'A') {
-          evt.preventDefault();
+    startX = evt.touches[0].pageX;
+    startY = evt.touches[0].pageY;
+  });
+  
+  // Disable horizontal scroll but enable vertical scrolling
+  swipePane.addEventListener('touchmove', function(evt) {
+      var hChange = evt.changedTouches[0].pageX - startX;
+      var vChange = evt.changedTouches[0].pageY - startY;
+      
+      if(Math.abs(hChange)>10 && Math.abs(hChange) > Math.abs(vChange)) {
+        evt.preventDefault();
       }
   });
 
-  swipePane.addEventListener('touchmove', function(evt) {
-      evt.preventDefault();
+  Hammer(swipePane).on("swipeleft", function(evt) {
+    if(previousLink) window.location.href = previousLink.href;
   });
-  
-  Hammer(swipePane).on("swipeleft", function(event) {
-    if(previousLink) window.location.href = previousLink.url;
+
+  Hammer(swipePane).on("swiperight", function(evt) {
+    if(nextLink) window.location.href = nextLink.href;
   });
-  
-  Hammer(swipePane).on("swiperight", function(event) {
-    if(nextLink) window.location.href = nextLink.url;
-  });
-  
+
 });
