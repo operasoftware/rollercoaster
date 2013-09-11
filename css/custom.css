@@ -5,6 +5,26 @@ body {
   font-weight: 300;
 }
 
+/* fancy background image */
+
+@media (min-width: 768px) {
+	#bg {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		background-position: bottom left, 0 0;
+		background-repeat: repeat-x, no-repeat;
+		background-size: auto auto, 100% auto;
+		-webkit-filter: grayscale(1);
+		-moz-filter: grayscale(1);
+		-ms-filter: grayscale(1);
+		filter: grayscale(1);
+		opacity: 0.08;
+	}
+}
+/* / fancy background image */
+
+
 /* header */
 
 header h1, header p {
