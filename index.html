@@ -6,15 +6,15 @@ layout: default
 {% if paginator.previous_page %}
   <div class="previous">
     {% if paginator.previous_page == 1 %}
-      <a href="{{ site.baseurl }}/"><span class="glyphicon glyphicon-chevron-left"></span> <span class="word">prev<span>ious</span></span></a>
+      <a href="{{ site.baseurl }}/"><span class="word">prev<span>ious</span></span></a>
     {% else %}
-      <a href="{{ site.baseurl }}{{ paginator.previous_page_path }}"><span class="glyphicon glyphicon-chevron-left"></span> <span class="word">prev<span>ious</span></span></a>
+      <a href="{{ site.baseurl }}{{ paginator.previous_page_path }}"><span class="word">prev<span>ious</span></span></a>
     {% endif %}
   </div>
 {% else %}
   <div class="previous">
     <span class="disabled">
-      <span class="glyphicon glyphicon-chevron-left"></span> <span class="word">prev<span>ious</span></span>
+      <span class="word">prev<span>ious</span></span>
     </span>
   </div>
 {% endif %}
@@ -23,12 +23,12 @@ layout: default
 <div class="col-sm-2 col-sm-push-8 col-xs-6">
 {% if paginator.next_page %}
   <div class="next">
-    <a href="{{ site.baseurl }}{{ paginator.next_page_path }}"><span class="word">next</span> <span class="glyphicon glyphicon-chevron-right"></span></a>
+    <a href="{{ site.baseurl }}{{ paginator.next_page_path }}"><span class="word">next</span> </a>
   </div>
 {% else %}
   <div class="next">
     <span class="disabled">
-      <span class="word">next</span> <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="word">next</span>
     </span>
   </div>
 {% endif %}
