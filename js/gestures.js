@@ -4,6 +4,16 @@ document.addEventListener("DOMContentLoaded", function() {
       previousLink = document.querySelector('.previous a'),
       nextLink = document.querySelector('.next a');
   
+  swipePane.addEventListener('touchstart', function(evt) {
+      if (evt.target.nodeName !== 'A') {
+          evt.preventDefault();
+      }
+  });
+
+  swipePane.addEventListener('touchmove', function(evt) {
+      evt.preventDefault();
+  });
+  
   Hammer(swipePane).on("swipeleft", function(event) {
     if(previousLink) window.location.href = previousLink.url;
   });
