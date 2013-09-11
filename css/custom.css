@@ -1,7 +1,7 @@
 body {
   background: #0D0D0D url(img-noise-200x200.png) 0 0 repeat;
   color: #ddd;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   font-weight: 300;
 }
 
@@ -21,7 +21,11 @@ header h1 {
     font-size: 3.8em;
   }
 }
-
+@media (min-width: 768px) {
+  header h1 {
+    font-size: 4.8em;
+  }
+}
 @media (min-width: 992px) {
   header h1 {
     font-size: 5em;
@@ -109,6 +113,13 @@ header h1 a, header h1 a:hover {
 
 .screenshot {width: 100%; max-width: 768px;}
 
+@media (width: 768px) {
+	.screenshot {height: 627px;} /* avoiding reflow while image is loading on iPad */
+}
+@media (width: 1024px) {
+	.screenshot {height: 822px;} /* avoiding reflow while image is loading on iPad */
+}
+
 @media (min-width: 1200px) {
   .screenshot {
     width: 768px;
@@ -140,7 +151,7 @@ article a, article a:hover {
   font-size: 0.9em;
 }
 footer {
-  margin: 0.5em 0 0 0;
+  margin: 0.5em 0 1em 0;
   text-align: right;
   color: #333;
 }
