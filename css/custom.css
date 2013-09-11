@@ -1,8 +1,8 @@
 body {
-  background: #0D0D0D url(img-noise-200x200.png) 0 0 repeat;
-  color: #ddd;
-  font-family: Helvetica, Arial, sans-serif;
-  font-weight: 300;
+	background: #0D0D0D url(img-noise-200x200.png) 0 0 repeat;
+	color: #ddd;
+	font-family: Helvetica, Arial, sans-serif;
+	font-weight: 300;
 }
 
 /* fancy background image */
@@ -28,86 +28,86 @@ body {
 /* header */
 
 header h1, header p {
-  text-align: center;
-  text-shadow: #000 0 0 15px;
+	text-align: center;
+	text-shadow: #000 0 0 15px;
 }
 header h1 {
-  font-family: 'Faster One', cursive;
-  font-size: 2.3em;
-  font-weight: 400;
+	font-family: 'Faster One', cursive;
+	font-size: 2.3em;
+	font-weight: 400;
 }
 @media (min-width: 530px) {
-  header h1 {
-    font-size: 3.8em;
-  }
+	header h1 {
+		font-size: 3.8em;
+	}
 }
 @media (min-width: 768px) {
-  header h1 {
-    font-size: 4.8em;
-  }
+	header h1 {
+		font-size: 4.8em;
+	}
 }
 @media (min-width: 992px) {
-  header h1 {
-    font-size: 5em;
-  }
+	header h1 {
+		font-size: 5em;
+	}
 }
 header p {
-  font-size: 1.3em;
-  font-style: italic;
+	font-size: 1.3em;
+	font-style: italic;
 }
 @media (min-width: 768px) {
-  header p {
-    margin-bottom: 2em;
-  }
+	header p {
+		margin-bottom: 2em;
+	}
 }
 header h1 a, header h1 a:hover {
-  color: #ddd; text-decoration: none;
+	color: #ddd; text-decoration: none;
 }
 
 /* /header */
 
 /* navigation buttons */
 .previous, .next {
-  height: 60px;
-  white-space:nowrap;
-  text-overflow: ellipsis;
+	height: 60px;
+	white-space:nowrap;
+	text-overflow: ellipsis;
 }
 .next {
-  text-align: right;
+	text-align: right;
 }
 .previous a, .next a {
-  width: 100%;
-  height: 100%;
-  color: #ddd;
-  text-decoration: none;
-  display: block;
+	width: 100%;
+	height: 100%;
+	color: #ddd;
+	text-decoration: none;
+	display: block;
 }
 @media (min-width: 768px) {
-  .previous a, .next a, .previous .disabled, .next .disabled {
-    height: 700px;
-    padding-top: 250px;
-  }
+	.previous a, .next a, .previous .disabled, .next .disabled {
+		height: 700px;
+		padding-top: 250px;
+	}
 }
 @media (min-width: 992px) {
-  .previous a, .next a {
-    height: 900px;
-  }
+	.previous a, .next a {
+		height: 900px;
+	}
 }
 @media (min-width: 1200px) {
-  .previous a, .next a {
-    height: 1100px;
-  }
+	.previous a, .next a {
+		height: 1100px;
+	}
 }
 .word {
-  font-size: 1.3em;
-  line-height: 3;
-  height: 60px;
-  width: 90px;
-  display: inline-block;
+	font-size: 1.3em;
+	line-height: 3;
+	height: 60px;
+	width: 90px;
+	display: inline-block;
 }
 .next .word {
-  padding-right: 40px;
-  background: transparent url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggZmlsbD0iI2RkZGRkZCIgZD0ibTguMjQyNTksMC4xNDY3N2wtOC4wNDI1OSw4LjAwOTIxbDExLjc4MDI2LDExLjc4MDIzbC0xMS43ODAyNiwxMS43ODAyNmw4LjA0MjU5LDguMDA5MThsMTkuMDg4NiwtMTkuMDU1MjhsMC43MDA4NiwtMC43MzQxNmwtMC4wMzM0MiwtMC4wMzM0MmwwLC0wLjAzMzMybC0xOS43NTYwNCwtMTkuNzIyN2wwLDBsMCwweiIvPgo8L3N2Zz4=
+	padding-right: 40px;
+	background: transparent url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggZmlsbD0iI2RkZGRkZCIgZD0ibTguMjQyNTksMC4xNDY3N2wtOC4wNDI1OSw4LjAwOTIxbDExLjc4MDI2LDExLjc4MDIzbC0xMS43ODAyNiwxMS43ODAyNmw4LjA0MjU5LDguMDA5MThsMTkuMDg4NiwtMTkuMDU1MjhsMC43MDA4NiwtMC43MzQxNmwtMC4wMzM0MiwtMC4wMzM0MmwwLC0wLjAzMzMybC0xOS43NTYwNCwtMTkuNzIyN2wwLDBsMCwweiIvPgo8L3N2Zz4=
 ) 100% 50% no-repeat;
 }
 .previous .word {
@@ -116,21 +116,21 @@ header h1 a, header h1 a:hover {
 ) 0% 50% no-repeat;
 }
 @media (min-width: 768px) and (max-width: 991px) {
-  .word span {
-    display: none;
-  }
-  .previous .word::after {content: ".";}
+	.word span {
+		display: none;
+	}
+	.previous .word::after {content: ".";}
 }
 .disabled {
-  display: block;
-  opacity: 0.1;
-  width: 100%;
+	display: block;
+	opacity: 0.1;
+	width: 100%;
 }
 
 @media (max-width: 767px) {
-  .page main {
-    margin-top: 60px; /* otherwise buttons don't work */
-  }
+	.page main {
+		margin-top: 60px; /* otherwise buttons don't work */
+	}
 }
 
 /* /navigation buttons */
@@ -145,40 +145,40 @@ header h1 a, header h1 a:hover {
 }
 
 @media (min-width: 1200px) {
-  .screenshot {
-    width: 768px;
-    position: relative;
-    left: -10px;
-  }
+	.screenshot {
+		width: 768px;
+		position: relative;
+		left: -10px;
+	}
 }
 article {
-  font-size: 1.3em;
+	font-size: 1.3em;
 }
 article a, article a:hover {
-  font-weight: 600;
-  color: #ddd;
+	font-weight: 600;
+	color: #ddd;
 }
 #content {
-  background-color: hsla(0, 0%, 15%, 0.5);
-  padding: 1em;
-  margin: 1em 0 0 0;
-  border-radius: 4px;
+	background-color: hsla(0, 0%, 15%, 0.5);
+	padding: 1em;
+	margin: 1em 0 0 0;
+	border-radius: 4px;
 }
 #content #site {
-  margin: 0 0 1em 0;
-  text-align: center;
-  font-style: italic;
-  font-size: 0.9em;
+	margin: 0 0 1em 0;
+	text-align: center;
+	font-style: italic;
+	font-size: 0.9em;
 }
 #permalink {
-  text-align: right;
-  font-size: 0.9em;
+	text-align: right;
+	font-size: 0.9em;
 }
 footer {
-  margin: 0.5em 0 1em 0;
-  text-align: right;
-  color: #333;
+	margin: 0.5em 0 1em 0;
+	text-align: right;
+	color: #333;
 }
 footer a, footer a:hover {
-  color: #333;
+	color: #333;
 }
