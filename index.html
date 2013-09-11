@@ -45,7 +45,11 @@ layout: default
 			<section id="commentary">
 			{{ post.content }}
 			</section>
-			<section id="permalink"><a href="{{ site.baseurl }}{{ post.url }}" title="permalink" rel="bookmark"># {{ post.date| date: "%Y-%m-%d" }}</a></section>
+			<section id="meta">
+			<p id="contribute" class="pull-left"><a href="https://github.com/operasoftware/rollercoaster/blob/master/README.md">Submit</a> a site!</p>
+			<p id="permalink" class="pull-right"><a href="{{ site.baseurl }}{{ post.url }}" title="permalink" rel="bookmark"># {{ post.date| date: "%Y-%m-%d" }}</a></p>
+			</section>
+			<div class="clearfix"></div>
 		</div>
 	</article>
 {% endfor %}

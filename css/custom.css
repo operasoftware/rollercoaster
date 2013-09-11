@@ -4,6 +4,9 @@ body {
 	font-family: Helvetica, Arial, sans-serif;
 	font-weight: 300;
 }
+a:focus {
+	color: #fff;
+}
 
 /* fancy background image */
 
@@ -170,8 +173,15 @@ article a, article a:hover {
 	font-style: italic;
 	font-size: 0.9em;
 }
+
+#meta {
+	border-top: 1px solid #222;
+	margin-top: 0.5em;
+	padding-top: 0.5em;
+	width: 100%;
+}
+
 #permalink {
-	text-align: right;
 	font-size: 0.9em;
 }
 footer {
