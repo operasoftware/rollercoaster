@@ -3,6 +3,11 @@ document.addEventListener("DOMContentLoaded", function() {
 	var swipePane = document.querySelector('#swipePane'),
 			previousLink = document.querySelector('.previous a'),
 			nextLink = document.querySelector('.next a');
+
+  // Disable object dragging
+	swipePane.addEventListener('dragstart', function(evt) {
+    evt.preventDefault();
+  });
 	
 	var startX, startY;
 	
@@ -21,30 +26,14 @@ document.addEventListener("DOMContentLoaded", function() {
 			}
 	});
 	
-	var navInvoked = false;
+	var pageSwipe = Hammer(swipePane, { swipe_velocity: 0.05 });
 	
-	function goBack() {
-	  if(navInvoked) return;
-	  if(previousLink) {
-	    navInvoked = true;
-	    window.location.href = previousLink.href;
-    }
-	}
-	
-	function goForward() {
-	  if(navInvoked) return;
-	  if(nextLink) {
-	    navInvoked = true;
-	    window.location.href = nextLink.href;
-    }
-	}
-	
-	var dragOptions = { drag_min_distance: 100 };
+	pageSwipe.on("swiperight", function() {
+	  if(previousLink) window.location.href = previousLink.href;
+	});
 
-	Hammer(swipePane).on("swiperight", goBack);
-	Hammer(swipePane, dragOptions).on("dragright", goBack);
-
-	Hammer(swipePane).on("swipeleft", goForward);
-	Hammer(swipePane, dragOptions).on("dragleft", goForward);
+	pageSwipe.on("swipeleft", function() {
+	  if(nextLink) window.location.href = nextLink.href;
+	});
 
 });
