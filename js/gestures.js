@@ -20,13 +20,25 @@ document.addEventListener("DOMContentLoaded", function() {
 				evt.preventDefault();
 			}
 	});
+	
+	var navInvoked = false;
+	
+	function goBack() {
+	  if(navInvoked) return;
+	  navInvoked = true;
+	  if(previousLink) window.location.href = previousLink.href;
+	}
+	
+	function goForward() {
+	  if(navInvoked) return;
+	  navInvoked = true;
+	  if(nextLink) window.location.href = nextLink.href;
+	}
 
-	Hammer(swipePane).on("swiperight", function(evt) {
-		if(previousLink) window.location.href = previousLink.href;
-	});
+	Hammer(swipePane).on("swiperight", goBack);
+	Hammer(swipePane).on("dragright", goBack);
 
-	Hammer(swipePane).on("swipeleft", function(evt) {
-		if(nextLink) window.location.href = nextLink.href;
-	});
+	Hammer(swipePane).on("swipeleft", goForward);
+	Hammer(swipePane).on("dragleft", goForward);
 
 });
