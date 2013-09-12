@@ -34,11 +34,13 @@ document.addEventListener("DOMContentLoaded", function() {
 	  navInvoked = true;
 	  if(nextLink) window.location.href = nextLink.href;
 	}
+	
+	var dragOptions = { drag_min_distance: 100 };
 
 	Hammer(swipePane).on("swiperight", goBack);
-	Hammer(swipePane).on("dragright", goBack);
+	Hammer(swipePane, dragOptions).on("dragright", goBack);
 
 	Hammer(swipePane).on("swipeleft", goForward);
-	Hammer(swipePane).on("dragleft", goForward);
+	Hammer(swipePane, dragOptions).on("dragleft", goForward);
 
 });
