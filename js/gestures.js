@@ -25,14 +25,18 @@ document.addEventListener("DOMContentLoaded", function() {
 	
 	function goBack() {
 	  if(navInvoked) return;
-	  navInvoked = true;
-	  if(previousLink) window.location.href = previousLink.href;
+	  if(previousLink) {
+	    navInvoked = true;
+	    window.location.href = previousLink.href;
+    }
 	}
 	
 	function goForward() {
 	  if(navInvoked) return;
-	  navInvoked = true;
-	  if(nextLink) window.location.href = nextLink.href;
+	  if(nextLink) {
+	    navInvoked = true;
+	    window.location.href = nextLink.href;
+    }
 	}
 	
 	var dragOptions = { drag_min_distance: 100 };
