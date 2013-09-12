@@ -21,7 +21,7 @@ Contributing is easy! Just follow these steps:
 4. Below the YAML metadata, you write your review in Markdown syntax, and save the file with a file name in the following format: `yyyy-mm-dd-sitename.md`
 5. Once all that is done, do a pull request to get it added to master.
 
-*If this is too hard, give us a shout at [@odevrel](https://twitter.com/odevrel) on Twitter and share the site's URL with us.*
+**If this is too hard, give us a shout at [@odevrel](https://twitter.com/odevrel) on Twitter and share the site's URL with us.**
 
 ## Image optimization tips
 
