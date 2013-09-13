@@ -31,4 +31,4 @@ In order to determine which file size is smaller, save the screenshot as PNG and
 
 ## Running a local copy of the site
 
-If you want to run a local copy of the site, you'll need [Jekyll](http://jekyllrb.com). You can start the site by running `jekyll serve --watch --baseurl=` from terminal, and going to `http://localhost:3333/` in your web browser. Preview on mobile is possible too: just figure out your local IP address through `ifconfig` and, `:3000/` and off you go.
+If you want to run a local copy of the site, you'll need [Jekyll](http://jekyllrb.com). You can start the site by running `jekyll serve --watch --baseurl=` from terminal, and going to `http://localhost:3333/` in your web browser. Preview on mobile is possible too: just figure out your local IP address through `ifconfig`, add `:3000/` and off you go.
