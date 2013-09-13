@@ -2,7 +2,6 @@ body {
 	background: #0D0D0D url(img-noise-200x200.png) 0 0 repeat;
 	color: #ddd;
 	font-family: Helvetica, Arial, sans-serif;
-	font-weight: 300;
 }
 a:focus {
 	color: #fff;
@@ -37,7 +36,6 @@ header h1, header p {
 header h1 {
 	font-family: 'Faster One', cursive;
 	font-size: 2.3em;
-	font-weight: 400;
 }
 @media (min-width: 530px) {
 	header h1 {
@@ -158,7 +156,7 @@ article {
 	font-size: 1.3em;
 }
 article a, article a:hover {
-	font-weight: 600;
+	font-weight: bold;
 	color: #ddd;
 }
 #content {
