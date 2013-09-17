@@ -2,20 +2,22 @@
 layout: default
 ---
 <main class="col-sm-8 col-sm-offset-2">
-	<article>
-		<figure>
-			<a href="http://{{ page.website }}/"><img src="{{ site.baseurl }}/postimages/{{ page.image }}" alt="Screenshot of {{ page.website }}" class="screenshot"></a>
-		</figure>
-		<div id="content">
-			<section id="site">Featured site: <a href="http://{{ page.website }}/">{{ page.website }}</a></section>
-			<section id="commentary">
-				{{ content }}
-			</section>
-			<section id="meta">
-			<p id="contribute" class="pull-left"><a href="https://github.com/operasoftware/rollercoaster/blob/master/README.md">Submit</a> a site!</p>
-			<p id="permalink" class="pull-right"><a href="{{ site.baseurl }}{{ page.url }}" title="permalink" rel="bookmark"># {{ page.date| date: "%Y-%m-%d" }}</a></p>
-			</section>
-			<div class="clearfix"></div>
-		</div>
-	</article>
+  <article>
+    <figure id="screenshotContainer">
+      <a href="http://{{ page.website }}/"><img src="{{ site.baseurl }}/postimages/{{ page.image }}" alt="Screenshot of {{ page.website }}" class="screenshot"></a>
+      <i class="previousOverlay"></i>
+      <i class="nextOverlay"></i>
+    </figure>
+    <div id="content">
+      <section id="site">Featured site: <a href="http://{{ page.website }}/">{{ page.website }}</a></section>
+      <section id="commentary">
+        {{ content }}
+      </section>
+      <section id="meta">
+      <p id="contribute" class="pull-left"><a href="https://github.com/operasoftware/rollercoaster/blob/master/README.md">Submit</a> a site!</p>
+      <p id="permalink" class="pull-right"><a href="{{ site.baseurl }}{{ page.url }}" title="permalink" rel="bookmark"># {{ page.date| date: "%Y-%m-%d" }}</a></p>
+      </section>
+      <div class="clearfix"></div>
+    </div>
+  </article>
 </main>
