@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function() {
       previousOverlay.style[transformCSSPropName] = nextOverlay.style[transformCSSPropName] = 'translate3d(0,0,0)';
     }
 
-    swipePane.removeEventListener('touchend', endHandler);
+    swipePane.removeEventListener(evt.type == 'touchend' ? 'touchend' : 'mouseup', endHandler);
   }
 
   swipePane.addEventListener('touchstart', startHandler);
