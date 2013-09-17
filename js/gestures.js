@@ -43,8 +43,6 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   function startHandler(evt) {
-    evt.preventDefault();
-    
     if(navState !== 0) {
       return;
     }
@@ -120,8 +118,6 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   function endHandler(evt) {
-    evt.preventDefault();
-    
     if(navState !== 2) {
       return;
     }
