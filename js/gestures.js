@@ -28,8 +28,8 @@ document.addEventListener("DOMContentLoaded", function() {
   var hChange = 0, vChange = 0;
   var navInvoked = false;
   
-  // Prevent element dragging in desktop user agents
-  swipePane.addEventListener('mousedown', function(evt) {
+  // Disable object dragging
+  swipePane.addEventListener('dragstart', function(evt) {
     evt.preventDefault();
   });
   
