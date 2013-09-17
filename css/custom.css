@@ -147,9 +147,9 @@ header h1 a, header h1 a:hover {
 
 @media (min-width: 1200px) {
   .screenshot {
-    width: 768px;
+    width: 750px;
     position: relative;
-    left: -10px;
+    left: 0;
   }
 }
 article {

@@ -36,13 +36,19 @@ document.addEventListener("DOMContentLoaded", function() {
   // Prevent element clicking in desktop user agents if
   // navigation actions have been invoked
   swipePane.addEventListener('click', function(evt) {
-    if(navState == 3) { // invoked state
-      navState = 0; // pending state
+    if(navState === 3) { // invoked state
+      navState = 0; // reset to pending state
       evt.preventDefault();
     }
   });
 
   function startHandler(evt) {
+    if(navState !== 0) {
+      return;
+    }
+    
+    navState = 1; // started state
+    
     if(evt.type == 'touchstart') {
       startX = evt.touches[0].pageX;
       startY = evt.touches[0].pageY;
@@ -51,13 +57,19 @@ document.addEventListener("DOMContentLoaded", function() {
       startY = evt.clientY;
     }
 
-    navState = 1; // started state
-
     // Start page navigation drag tracking
     swipePane.addEventListener(evt.type == 'touchstart' ? 'touchmove' : 'mousemove', moveHandler);
   }
 
   function moveHandler(evt) {
+    if(navState === 1) { // started state
+      navState = 2; // running state
+      swipePane.addEventListener(evt.type == 'touchmove' ? 'touchend' : 'mouseup', endHandler);
+      return;
+    } else if(navState !== 2) { // running state
+      return;
+    }
+    
     var moveX, moveY;
 
     if(evt.type == 'touchmove') {
@@ -82,29 +94,25 @@ document.addEventListener("DOMContentLoaded", function() {
       if (previousLink && hChange > 10) {
         if(hChange < 150) {
           previousOverlay.style[transformCSSPropName] = 'translate3d(' + hChange + 'px,0,0)';
-          previousOverlay.style.opacity = hChange / 150;
+          previousOverlay.style.opacity = hChange / 180;
           previousOverlay.style.backgroundColor = '#3c3c3c';
         } else {
-          previousOverlay.style.opacity = 0.9;
+          previousOverlay.style.opacity = 0.95;
           previousOverlay.style[transformCSSPropName] = 'translate3d(150px,0,0)';
           previousOverlay.style.backgroundColor = '#000';
         }
       } else if(nextLink && hChange < -10) {
         if(hChange > -150) {
           nextOverlay.style[transformCSSPropName] = 'translate3d(' + hChange + 'px,0,0)';
-          nextOverlay.style.opacity = hChange / -150;
+          nextOverlay.style.opacity = hChange / -180;
           nextOverlay.style.backgroundColor = '#3c3c3c';
         } else {
-          nextOverlay.style.opacity = 0.9;
+          nextOverlay.style.opacity = 0.95;
           nextOverlay.style[transformCSSPropName] = 'translate3d(-150px,0,0)';
           nextOverlay.style.backgroundColor = '#000';
         }
       }
       
-      if(navState == 1) { // started state
-        swipePane.addEventListener(evt.type == 'touchmove' ? 'touchend' : 'mouseup', endHandler);
-        navState = 2; // running state
-      }
     } else {
       previousOverlay.style[transformCSSPropName] = nextOverlay.style[transformCSSPropName] = 'translate3d(0,0,0)';
     }
@@ -112,6 +120,10 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   function endHandler(evt) {
+    if(navState !== 2) {
+      return;
+    }
+    
     // Stop page navigation drag tracking
     swipePane.removeEventListener(evt.type == 'touchend' ? 'touchmove' : 'mousemove', moveHandler);
 
@@ -129,6 +141,7 @@ document.addEventListener("DOMContentLoaded", function() {
         window.location.href = nextLink.href;
         return;
       }
+      navState = 0;
     } else {
       navState = 0; // pending state
       
