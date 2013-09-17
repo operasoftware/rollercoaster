@@ -6,10 +6,10 @@ document.addEventListener("DOMContentLoaded", function() {
       screenshot = document.querySelector('.screenshot'),
       previousOverlay = document.querySelector('.previousOverlay'),
       nextOverlay = document.querySelector('.nextOverlay');
-      
+
   var transitionPropNames = ['transition', 'OTransition', 'MSTransition', 'MozTransition', 'WebkitTransition'];
   var transformPropNames = ['transform', 'OTransform', 'MSTransform', 'MozTransform', 'WebkitTransform'];
-      
+
   function getCSSPropertyName(propNameSearchArray, defaultPropName) {
     var el = document.createElement('div');
     var style = el.style;
@@ -27,13 +27,13 @@ document.addEventListener("DOMContentLoaded", function() {
   var startX, startY;
   var hChange = 0, vChange = 0;
   var navState = 0; // pending state
-  
+
   // Disable object dragging
   swipePane.addEventListener('dragstart', function(evt) {
     evt.preventDefault();
   });
-  
-  // Prevent element clicking in desktop user agents if 
+
+  // Prevent element clicking in desktop user agents if
   // navigation actions have been invoked
   swipePane.addEventListener('click', function(evt) {
     if(navState == 3) { // invoked state
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
       evt.preventDefault();
     }
   });
-  
+
   function startHandler(evt) {
     if(evt.type == 'touchstart') {
       startX = evt.touches[0].pageX;
@@ -50,16 +50,16 @@ document.addEventListener("DOMContentLoaded", function() {
       startX = evt.clientX;
       startY = evt.clientY;
     }
-    
+
     navState = 1; // started state
-    
+
     // Start page navigation drag tracking
     swipePane.addEventListener(evt.type == 'touchstart' ? 'touchmove' : 'mousemove', moveHandler);
   }
-  
+
   function moveHandler(evt) {
     var moveX, moveY;
-    
+
     if(evt.type == 'touchmove') {
       moveX = evt.changedTouches[0].pageX;
       moveY = evt.changedTouches[0].pageY;
@@ -67,17 +67,17 @@ document.addEventListener("DOMContentLoaded", function() {
       moveX = evt.clientX;
       moveY = evt.clientY;
     }
-    
+
     hChange = moveX - startX;
     vChange = moveY - startY;
-    
+
     // Disable horizontal scroll but enable vertical scrolling
     if(Math.abs(hChange)>10 && Math.abs(hChange) > Math.abs(vChange)) {
       // Only prevent default behavior if a previous or next link is available
       if((hChange > 0 && previousLink) || (hChange < 0 && nextLink)) {
         evt.preventDefault();
       }
-      
+
       // Animate prev/next overlay elements
       if (previousLink && hChange > 10) {
         if(hChange < 150) {
@@ -101,17 +101,17 @@ document.addEventListener("DOMContentLoaded", function() {
         }
       }
     }
-    
+
     if(navState == 1) { // started state
       swipePane.addEventListener(evt.type == 'touchmove' ? 'touchend' : 'mouseup', endHandler);
       navState = 2; // running state
     }
   }
-  
+
   function endHandler(evt) {
     // Stop page navigation drag tracking
     swipePane.removeEventListener(evt.type == 'touchend' ? 'touchmove' : 'mousemove', moveHandler);
-    
+
     if(Math.abs(hChange) >= 150) {
       navState = 3; // invoked state
       if(previousLink && hChange >= 150) {
@@ -125,15 +125,15 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     } else {
       navState = 0; // pending state
-      
+
       previousOverlay.style[transitionCSSPropName] = nextOverlay.style[transitionCSSPropName] = "all 0.3s ease";
       setTimeout(function() {
         previousOverlay.style[transitionCSSPropName] = nextOverlay.style[transitionCSSPropName] = null;
       }, 350);
       previousOverlay.style[transformCSSPropName] = nextOverlay.style[transformCSSPropName] = 'translate3d(0,0,0)';
-      
+
     }
-    
+
     swipePane.removeEventListener('touchend', endHandler);
   }
 
