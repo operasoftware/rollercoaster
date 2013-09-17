@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Disable horizontal scroll but enable vertical scrolling
     if(Math.abs(hChange)>10 && Math.abs(hChange) > Math.abs(vChange)) {
       // Only prevent default behavior if a previous or next link is available
-      if ((hChange > 0 && !previousLink) || (hChange < 0 && !nextLink === null)) {
+      if ((hChange > 0 && previousLink) || (hChange < 0 && nextLink)) {
         evt.preventDefault();
       }
     }
