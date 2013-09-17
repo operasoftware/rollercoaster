@@ -100,12 +100,15 @@ document.addEventListener("DOMContentLoaded", function() {
           nextOverlay.style.backgroundColor = '#000';
         }
       }
+      
+      if(navState == 1) { // started state
+        swipePane.addEventListener(evt.type == 'touchmove' ? 'touchend' : 'mouseup', endHandler);
+        navState = 2; // running state
+      }
+    } else {
+      previousOverlay.style[transformCSSPropName] = nextOverlay.style[transformCSSPropName] = 'translate3d(0,0,0)';
     }
-
-    if(navState == 1) { // started state
-      swipePane.addEventListener(evt.type == 'touchmove' ? 'touchend' : 'mouseup', endHandler);
-      navState = 2; // running state
-    }
+    
   }
 
   function endHandler(evt) {
@@ -113,25 +116,27 @@ document.addEventListener("DOMContentLoaded", function() {
     swipePane.removeEventListener(evt.type == 'touchend' ? 'touchmove' : 'mousemove', moveHandler);
 
     if(Math.abs(hChange) >= 150) {
-      navState = 3; // invoked state
       if(previousLink && hChange >= 150) {
+        navState = 3; // invoked state
+
         previousOverlay.style.width = '100%';
         window.location.href = previousLink.href;
         return;
       } else if(nextLink && hChange <= -150) {
+        navState = 3; // invoked state
+
         nextOverlay.style.width = '100%';
         window.location.href = nextLink.href;
         return;
       }
     } else {
       navState = 0; // pending state
-
+      
       previousOverlay.style[transitionCSSPropName] = nextOverlay.style[transitionCSSPropName] = "all 0.3s ease";
       setTimeout(function() {
         previousOverlay.style[transitionCSSPropName] = nextOverlay.style[transitionCSSPropName] = null;
       }, 350);
       previousOverlay.style[transformCSSPropName] = nextOverlay.style[transformCSSPropName] = 'translate3d(0,0,0)';
-
     }
 
     swipePane.removeEventListener('touchend', endHandler);
