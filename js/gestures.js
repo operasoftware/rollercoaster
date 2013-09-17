@@ -43,6 +43,8 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   function startHandler(evt) {
+    evt.preventDefault();
+    
     if(navState !== 0) {
       return;
     }
@@ -62,6 +64,8 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   function moveHandler(evt) {
+    evt.preventDefault();
+    
     if(navState === 1) { // started state
       navState = 2; // running state
       swipePane.addEventListener(evt.type == 'touchmove' ? 'touchend' : 'mouseup', endHandler);
@@ -83,15 +87,12 @@ document.addEventListener("DOMContentLoaded", function() {
     hChange = moveX - startX;
     vChange = moveY - startY;
 
-    // Disable horizontal scroll but enable vertical scrolling
-    if(Math.abs(hChange)>10 && Math.abs(hChange) > Math.abs(vChange)) {
-      // Only prevent default behavior if a previous or next link is available
-      if((hChange > 0 && previousLink) || (hChange < 0 && nextLink)) {
-        evt.preventDefault();
-      }
+    // Only take action when movement is in a horizontal direction
+    if(Math.abs(hChange) > Math.abs(vChange)) {
 
-      // Animate prev/next overlay elements
-      if (previousLink && hChange > 10) {
+      // Animate previous overlay element
+      if(previousLink && hChange > 9) {
+        evt.preventDefault(); // Disable horizontal scroll
         if(hChange < 150) {
           previousOverlay.style[transformCSSPropName] = 'translate3d(' + hChange + 'px,0,0)';
           previousOverlay.style.opacity = hChange / 180;
@@ -101,7 +102,8 @@ document.addEventListener("DOMContentLoaded", function() {
           previousOverlay.style[transformCSSPropName] = 'translate3d(150px,0,0)';
           previousOverlay.style.backgroundColor = '#000';
         }
-      } else if(nextLink && hChange < -10) {
+      } else if(nextLink && hChange < -9) { // Animate next overlay element
+        evt.preventDefault(); // Disable horizontal scroll
         if(hChange > -150) {
           nextOverlay.style[transformCSSPropName] = 'translate3d(' + hChange + 'px,0,0)';
           nextOverlay.style.opacity = hChange / -180;
@@ -120,28 +122,31 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   function endHandler(evt) {
+    evt.preventDefault();
+    
     if(navState !== 2) {
       return;
     }
     
     // Stop page navigation drag tracking
     swipePane.removeEventListener(evt.type == 'touchend' ? 'touchmove' : 'mousemove', moveHandler);
+    // Remove self
+    swipePane.removeEventListener(evt.type == 'touchend' ? 'touchend' : 'mouseup', endHandler);
 
-    if(Math.abs(hChange) >= 150) {
-      if(previousLink && hChange >= 150) {
-        navState = 3; // invoked state
+    if(previousLink && hChange > 149) {
+      navState = 3; // invoked state
 
-        previousOverlay.style.width = '100%';
-        window.location.href = previousLink.href;
-        return;
-      } else if(nextLink && hChange <= -150) {
-        navState = 3; // invoked state
+      previousOverlay.style.width = '100%';
+      
+      window.location.href = previousLink.href; // navigate to previous url
+      
+    } else if(nextLink && hChange < -149) {
+      navState = 3; // invoked state
 
-        nextOverlay.style.width = '100%';
-        window.location.href = nextLink.href;
-        return;
-      }
-      navState = 0;
+      nextOverlay.style.width = '100%';
+      
+      window.location.href = nextLink.href; // navigate to next url
+      
     } else {
       navState = 0; // pending state
       
@@ -151,8 +156,7 @@ document.addEventListener("DOMContentLoaded", function() {
       }, 350);
       previousOverlay.style[transformCSSPropName] = nextOverlay.style[transformCSSPropName] = 'translate3d(0,0,0)';
     }
-
-    swipePane.removeEventListener(evt.type == 'touchend' ? 'touchend' : 'mouseup', endHandler);
+    
   }
 
   swipePane.addEventListener('touchstart', startHandler);
