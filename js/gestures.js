@@ -64,8 +64,6 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   function moveHandler(evt) {
-    evt.preventDefault();
-    
     if(navState === 1) { // started state
       navState = 2; // running state
       swipePane.addEventListener(evt.type == 'touchmove' ? 'touchend' : 'mouseup', endHandler);
