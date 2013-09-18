@@ -151,6 +151,11 @@ header h1 a, header h1 a:hover {
     position: relative;
     left: 0;
   }
+
+  /* Fix container to allow full-width screenshot to fit */
+  .page main {
+    padding: 2px;
+  }
 }
 article {
   font-size: 1.3em;
