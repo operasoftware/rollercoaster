@@ -132,20 +132,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
       previousOverlay.style.width = '100%';
       
-      if (document.documentElement.clientWidth >= 1200) {
-      	previousOverlay.style.width = '770px';
-      }
-
       window.location.href = previousLink.href; // navigate to previous url
       
     } else if(nextLink && hChange < -149) {
       navState = 3; // invoked state
 
       nextOverlay.style.width = '100%';
-
-      if (document.documentElement.clientWidth >= 1200) {
-      	nextOverlay.style.width = '770px';
-      }
       
       window.location.href = nextLink.href; // navigate to next url
       
