@@ -43,16 +43,9 @@
           <p>A selection of tablet-optimized sites &amp; techniques</p>
         </header>
       </div>
-      <div id="swipePane" class="row">
-
+ 
           {{ content }}
 
-      </div>
-      <div class="row">
-        <footer class="col-sm-8 col-sm-offset-2">
-          Review © 2013 Opera Software ASA. Licensed for use under <a href="http://creativecommons.org/licenses/by/3.0/" rel="license">CC BY 3.0</a>.{% for post in paginator.posts %}{% if post.copy %} {{ post.copy }} {% else %} All featured site content is the property of its respective owner.{% endif %}{% endfor %}
-        </footer>
-      </div>
     </div><!-- /.container -->
   </body>
 </html>

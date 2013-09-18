@@ -215,7 +215,7 @@ article a, article a:hover {
 }
 footer {
   margin: 0.5em 0 1em 0;
-  text-align: right;
+  text-align: left;
   color: #333;
 }
 footer a, footer a:hover {
