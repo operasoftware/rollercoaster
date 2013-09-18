@@ -154,7 +154,7 @@ header h1 a, header h1 a:hover {
 
   /* Fix container to allow full-width screenshot to fit */
   .page main {
-    padding: 1px;
+    padding: 6px;
   }
 }
 article {
