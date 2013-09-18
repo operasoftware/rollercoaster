@@ -147,7 +147,7 @@ header h1 a, header h1 a:hover {
 
 @media (min-width: 1200px) {
   .screenshot {
-    width: 750px;
+    width: 768px;
     position: relative;
     left: 0;
   }
