@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   function startHandler(evt) {
-    if(navState !== 0) {
+    if(navState !== 0 && navState !== 3) {
       return;
     }
     
