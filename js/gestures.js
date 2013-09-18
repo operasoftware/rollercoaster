@@ -10,7 +10,12 @@ document.addEventListener("DOMContentLoaded", function() {
   var cssPropNamePrefixes = ['O', 'MS', 'Moz', 'Webkit'];
 
   function getCSSPropertyName(cssDefaultPropName) {
-    var cssPropNameSuffix = cssDefaultPropName.charAt(0).toUpperCase() + cssDefaultPropName.slice(1);
+    var cssPropNameSuffix = '';
+    var propNameParts = cssDefaultPropName.split('-');
+    for(var i = 0, l = propNameParts.length; i< l; i++) {
+      cssPropNameSuffix += propNameParts[i].charAt(0).toUpperCase() + propNameParts[i].slice(1);
+    }
+    
     var el = document.createElement('div');
     var style = el.style;
     for (var i = 0, l = cssPropNamePrefixes.length; i < l; i++) {
@@ -24,6 +29,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
   var transitionCSSPropName = getCSSPropertyName('transition');
   var transformCSSPropName = getCSSPropertyName('transform');
+  
+  var animationNameCSSPropName = getCSSPropertyName('animation-name');
+  if(previousLink) {
+    previousOverlay.style[animationNameCSSPropName] = 'bouncePreviousOverlay';
+  }
+  if(nextLink) {
+    nextOverlay.style[animationNameCSSPropName] = 'bounceNextOverlay';
+  }
 
   var startX, startY;
   var hChange = 0, vChange = 0;
@@ -85,7 +98,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Only take action when movement is in a horizontal direction
     if(Math.abs(hChange) > Math.abs(vChange)) {
-
       // Animate previous overlay element
       if(previousLink && hChange > 9) {
         evt.preventDefault(); // Disable horizontal scroll
@@ -127,25 +139,33 @@ document.addEventListener("DOMContentLoaded", function() {
 
     if(previousLink && hChange > 149) {
       navState = 3; // invoked state
-
-      previousOverlay.style.width = '100%';
       
-      window.location.href = previousLink.href; // navigate to previous url
+      previousOverlay.style[transitionCSSPropName] = 'width 0.3s ease';
+      previousOverlay.style.width = '100%';
+      screenshot.style.visibility = 'hidden';
+      
+      setTimeout(function() {
+        window.location.href = previousLink.href; // navigate to previous url
+      }, 400);
       
     } else if(nextLink && hChange < -149) {
       navState = 3; // invoked state
-
-      nextOverlay.style.width = '100%';
       
-      window.location.href = nextLink.href; // navigate to next url
+      nextOverlay.style[transitionCSSPropName] = 'width 0.3s ease';
+      nextOverlay.style.width = '100%';
+      screenshot.style.visibility = 'hidden';
+      
+      setTimeout(function() {
+        window.location.href = nextLink.href; // navigate to next url
+      }, 400);
       
     } else {
       navState = 0; // pending state
       
-      previousOverlay.style[transitionCSSPropName] = nextOverlay.style[transitionCSSPropName] = "all 0.2s ease";
+      previousOverlay.style[transitionCSSPropName] = nextOverlay.style[transitionCSSPropName] = "all 0.5s ease";
       setTimeout(function() {
         previousOverlay.style[transitionCSSPropName] = nextOverlay.style[transitionCSSPropName] = null;
-      }, 250);
+      }, 600);
       previousOverlay.style[transformCSSPropName] = nextOverlay.style[transformCSSPropName] = 'translate3d(0,0,0)';
     }
     
