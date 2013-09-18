@@ -2,6 +2,7 @@
 layout: post
 image: skinnyties.jpg
 website: skinnyties.com
+copy: © 2013 Skinny Ties. All rights reserved.
 ---
 Every time I check out [Skinny Ties](http://skinnyties.com/), there's a smile on my face. Not only do the ties look amazing, but also the Skinny Ties website is fabulous and shines on tablets.
 
