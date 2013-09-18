@@ -24,7 +24,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
   var transitionCSSPropName = getCSSPropertyName('transition');
   var transformCSSPropName = getCSSPropertyName('transform');
-  var filterCSSPropName = getCSSPropertyName('filter');
 
   var startX, startY;
   var hChange = 0, vChange = 0;
@@ -95,12 +94,10 @@ document.addEventListener("DOMContentLoaded", function() {
           previousOverlay.style[transformCSSPropName] = 'translate3d(' + hChange + 'px,0,0)';
           previousOverlay.style.opacity = effectVal;
           previousOverlay.style.backgroundColor = '#3c3c3c';
-          screenshot.style[filterCSSPropName] = 'grayscale(' + effectVal + ')';
         } else {
           previousOverlay.style.opacity = 0.95;
           previousOverlay.style[transformCSSPropName] = 'translate3d(150px,0,0)';
           previousOverlay.style.backgroundColor = '#000';
-          screenshot.style[filterCSSPropName] = 'grayscale(1)';
         }
       } else if(nextLink && hChange < -9) { // Animate next overlay element
         evt.preventDefault(); // Disable horizontal scroll
@@ -109,18 +106,15 @@ document.addEventListener("DOMContentLoaded", function() {
           nextOverlay.style[transformCSSPropName] = 'translate3d(' + hChange + 'px,0,0)';
           nextOverlay.style.opacity = effectVal;
           nextOverlay.style.backgroundColor = '#3c3c3c';
-          screenshot.style[filterCSSPropName] = 'grayscale(' + effectVal + ')';
         } else {
           nextOverlay.style[transformCSSPropName] = 'translate3d(-150px,0,0)';
           nextOverlay.style.opacity = 0.95;
           nextOverlay.style.backgroundColor = '#000';
-          screenshot.style[filterCSSPropName] = 'grayscale(1)';
         }
       }
       
     } else {
       previousOverlay.style[transformCSSPropName] = nextOverlay.style[transformCSSPropName] = 'translate3d(0,0,0)';
-      screenshot.style[filterCSSPropName] = 'none';
     }
     
   }
@@ -157,7 +151,6 @@ document.addEventListener("DOMContentLoaded", function() {
         previousOverlay.style[transitionCSSPropName] = nextOverlay.style[transitionCSSPropName] = null;
       }, 250);
       previousOverlay.style[transformCSSPropName] = nextOverlay.style[transformCSSPropName] = 'translate3d(0,0,0)';
-      screenshot.style[filterCSSPropName] = 'none';
     }
     
   }
