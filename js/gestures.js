@@ -78,6 +78,7 @@ document.addEventListener("DOMContentLoaded", function() {
   function moveHandler(evt) {
     if(navState === 1) { // started state
       navState = 2; // running state
+      previousOverlay.style[animationNameCSSPropName] = nextOverlay.style[animationNameCSSPropName] = null; // break bounce
       swipePane.addEventListener(evt.type == 'touchmove' ? 'touchend' : 'mouseup', endHandler);
     } else if(navState !== 2) { // running state
       return;
@@ -141,23 +142,21 @@ document.addEventListener("DOMContentLoaded", function() {
       navState = 3; // invoked state
       
       previousOverlay.style[transitionCSSPropName] = 'width 0.3s ease';
-      previousOverlay.style.width = '100%';
-      screenshot.style.visibility = 'hidden';
-      
       setTimeout(function() {
         window.location.href = previousLink.href; // navigate to previous url
       }, 400);
+      previousOverlay.style.width = '100%';
+      screenshot.style.visibility = 'hidden';
       
     } else if(nextLink && hChange < -149) {
       navState = 3; // invoked state
       
       nextOverlay.style[transitionCSSPropName] = 'width 0.3s ease';
-      nextOverlay.style.width = '100%';
-      screenshot.style.visibility = 'hidden';
-      
       setTimeout(function() {
         window.location.href = nextLink.href; // navigate to next url
       }, 400);
+      nextOverlay.style.width = '100%';
+      screenshot.style.visibility = 'hidden';
       
     } else {
       navState = 0; // pending state
