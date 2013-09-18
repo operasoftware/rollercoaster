@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function() {
   // Prevent element clicking in desktop user agents if
   // navigation actions have been invoked
   swipePane.addEventListener('click', function(evt) {
-    if(navState === 3) { // invoked state
+    if(navState === 3) { // clean-up state
       navState = 0; // reset to pending state
       evt.preventDefault();
     }
@@ -138,9 +138,9 @@ document.addEventListener("DOMContentLoaded", function() {
     // Remove self
     swipePane.removeEventListener(evt.type == 'touchend' ? 'touchend' : 'mouseup', endHandler);
 
+    navState = 3; // cleanup state
+
     if(previousLink && hChange > 149) {
-      navState = 3; // invoked state
-      
       previousOverlay.style[transitionCSSPropName] = 'width 0.3s ease';
       setTimeout(function() {
         window.location.href = previousLink.href; // navigate to previous url
@@ -149,8 +149,6 @@ document.addEventListener("DOMContentLoaded", function() {
       screenshot.style.visibility = 'hidden';
       
     } else if(nextLink && hChange < -149) {
-      navState = 3; // invoked state
-      
       nextOverlay.style[transitionCSSPropName] = 'width 0.3s ease';
       setTimeout(function() {
         window.location.href = nextLink.href; // navigate to next url
@@ -159,8 +157,6 @@ document.addEventListener("DOMContentLoaded", function() {
       screenshot.style.visibility = 'hidden';
       
     } else {
-      navState = 0; // pending state
-      
       previousOverlay.style[transitionCSSPropName] = nextOverlay.style[transitionCSSPropName] = "all 0.5s ease";
       setTimeout(function() {
         previousOverlay.style[transitionCSSPropName] = nextOverlay.style[transitionCSSPropName] = null;
