@@ -7,22 +7,24 @@ document.addEventListener("DOMContentLoaded", function() {
       previousOverlay = document.querySelector('.previousOverlay'),
       nextOverlay = document.querySelector('.nextOverlay');
 
-  var transitionPropNames = ['transition', 'OTransition', 'MSTransition', 'MozTransition', 'WebkitTransition'];
-  var transformPropNames = ['transform', 'OTransform', 'MSTransform', 'MozTransform', 'WebkitTransform'];
+  var cssPropNamePrefixes = ['O', 'MS', 'Moz', 'Webkit'];
 
-  function getCSSPropertyName(propNameSearchArray, defaultPropName) {
+  function getCSSPropertyName(cssDefaultPropName) {
+    var cssPropNameSuffix = cssDefaultPropName.charAt(0).toUpperCase() + cssDefaultPropName.slice(1);
     var el = document.createElement('div');
     var style = el.style;
-    for (var i = 0, l = propNameSearchArray.length; i < l; i++) {
-      if( style[ propNameSearchArray[i] ] !== undefined ) {
-        return propNameSearchArray[i];
+    for (var i = 0, l = cssPropNamePrefixes.length; i < l; i++) {
+      var cssPrefixedPropName = cssPropNamePrefixes[i] + cssPropNameSuffix;
+      if( style[ cssPrefixedPropName ] !== undefined ) {
+        return cssPrefixedPropName;
       }
     }
-    return defaultPropName; // fallback to standard prop name
+    return cssDefaultPropName; // fallback to standard prop name
   }
 
-  var transitionCSSPropName = getCSSPropertyName(transitionPropNames, 'transition');
-  var transformCSSPropName = getCSSPropertyName(transformPropNames, 'transform');
+  var transitionCSSPropName = getCSSPropertyName('transition');
+  var transformCSSPropName = getCSSPropertyName('transform');
+  var filterCSSPropName = getCSSPropertyName('filter');
 
   var startX, startY;
   var hChange = 0, vChange = 0;
@@ -65,7 +67,6 @@ document.addEventListener("DOMContentLoaded", function() {
     if(navState === 1) { // started state
       navState = 2; // running state
       swipePane.addEventListener(evt.type == 'touchmove' ? 'touchend' : 'mouseup', endHandler);
-      return;
     } else if(navState !== 2) { // running state
       return;
     }
@@ -90,29 +91,36 @@ document.addEventListener("DOMContentLoaded", function() {
       if(previousLink && hChange > 9) {
         evt.preventDefault(); // Disable horizontal scroll
         if(hChange < 150) {
+          var effectVal = hChange / 180;
           previousOverlay.style[transformCSSPropName] = 'translate3d(' + hChange + 'px,0,0)';
-          previousOverlay.style.opacity = hChange / 180;
+          previousOverlay.style.opacity = effectVal;
           previousOverlay.style.backgroundColor = '#3c3c3c';
+          screenshot.style[filterCSSPropName] = 'grayscale(' + effectVal + ')';
         } else {
           previousOverlay.style.opacity = 0.95;
           previousOverlay.style[transformCSSPropName] = 'translate3d(150px,0,0)';
           previousOverlay.style.backgroundColor = '#000';
+          screenshot.style[filterCSSPropName] = 'grayscale(1)';
         }
       } else if(nextLink && hChange < -9) { // Animate next overlay element
         evt.preventDefault(); // Disable horizontal scroll
         if(hChange > -150) {
+          var effectVal = hChange / -180;
           nextOverlay.style[transformCSSPropName] = 'translate3d(' + hChange + 'px,0,0)';
-          nextOverlay.style.opacity = hChange / -180;
+          nextOverlay.style.opacity = effectVal;
           nextOverlay.style.backgroundColor = '#3c3c3c';
+          screenshot.style[filterCSSPropName] = 'grayscale(' + effectVal + ')';
         } else {
-          nextOverlay.style.opacity = 0.95;
           nextOverlay.style[transformCSSPropName] = 'translate3d(-150px,0,0)';
+          nextOverlay.style.opacity = 0.95;
           nextOverlay.style.backgroundColor = '#000';
+          screenshot.style[filterCSSPropName] = 'grayscale(1)';
         }
       }
       
     } else {
       previousOverlay.style[transformCSSPropName] = nextOverlay.style[transformCSSPropName] = 'translate3d(0,0,0)';
+      screenshot.style[filterCSSPropName] = 'none';
     }
     
   }
@@ -144,11 +152,12 @@ document.addEventListener("DOMContentLoaded", function() {
     } else {
       navState = 0; // pending state
       
-      previousOverlay.style[transitionCSSPropName] = nextOverlay.style[transitionCSSPropName] = "all 0.3s ease";
+      previousOverlay.style[transitionCSSPropName] = nextOverlay.style[transitionCSSPropName] = "all 0.2s ease";
       setTimeout(function() {
         previousOverlay.style[transitionCSSPropName] = nextOverlay.style[transitionCSSPropName] = null;
-      }, 350);
+      }, 250);
       previousOverlay.style[transformCSSPropName] = nextOverlay.style[transformCSSPropName] = 'translate3d(0,0,0)';
+      screenshot.style[filterCSSPropName] = 'none';
     }
     
   }
