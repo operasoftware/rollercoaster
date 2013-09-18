@@ -147,14 +147,13 @@ header h1 a, header h1 a:hover {
 
 @media (min-width: 1200px) {
   .screenshot {
-    width: 750px;
+    width: 768px;
     position: relative;
-    left: 0;
+    left: -9px;
   }
 }
 article {
   font-size: 1.3em;
-overflow: hidden;
 }
 article a, article a:hover {
   font-weight: bold;
@@ -171,7 +170,7 @@ article a, article a:hover {
   top: 0;
   width: 150px;
   height: 100%;
-  opacity: 0.5;
+  opacity: 0;
   z-index: 10;
 }
 #screenshotContainer .previousOverlay {
@@ -183,6 +182,14 @@ article a, article a:hover {
   right: -150px;
   background: #3c3c3c url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggZmlsbD0iI2RkZGRkZCIgZD0ibTguMjQyNTksMC4xNDY3N2wtOC4wNDI1OSw4LjAwOTIxbDExLjc4MDI2LDExLjc4MDIzbC0xMS43ODAyNiwxMS43ODAyNmw4LjA0MjU5LDguMDA5MThsMTkuMDg4NiwtMTkuMDU1MjhsMC43MDA4NiwtMC43MzQxNmwtMC4wMzM0MiwtMC4wMzM0MmwwLC0wLjAzMzMybC0xOS43NTYwNCwtMTkuNzIyN2wwLDBsMCwweiIvPgo8L3N2Zz4=
 ) 50% 50% no-repeat;
+}
+@media (min-width: 1200px) {
+	#screenshotContainer .previousOverlay {
+		left: -160px;
+	}
+	#screenshotContainer .nextOverlay {
+		right: -160px;
+	}
 }
 
 #content {
