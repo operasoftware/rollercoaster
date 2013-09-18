@@ -90,26 +90,22 @@ document.addEventListener("DOMContentLoaded", function() {
       if(previousLink && hChange > 9) {
         evt.preventDefault(); // Disable horizontal scroll
         if(hChange < 150) {
-          var effectVal = hChange / 180;
+          var effectVal = hChange / 180 * 0.8;
           previousOverlay.style[transformCSSPropName] = 'translate3d(' + hChange + 'px,0,0)';
           previousOverlay.style.opacity = effectVal;
-          previousOverlay.style.backgroundColor = '#3c3c3c';
         } else {
-          previousOverlay.style.opacity = 0.95;
+          previousOverlay.style.opacity = 0.9;
           previousOverlay.style[transformCSSPropName] = 'translate3d(150px,0,0)';
-          previousOverlay.style.backgroundColor = '#000';
         }
       } else if(nextLink && hChange < -9) { // Animate next overlay element
         evt.preventDefault(); // Disable horizontal scroll
         if(hChange > -150) {
-          var effectVal = hChange / -180;
+          var effectVal = hChange / -180 * 0.8;
           nextOverlay.style[transformCSSPropName] = 'translate3d(' + hChange + 'px,0,0)';
           nextOverlay.style.opacity = effectVal;
-          nextOverlay.style.backgroundColor = '#3c3c3c';
         } else {
           nextOverlay.style[transformCSSPropName] = 'translate3d(-150px,0,0)';
-          nextOverlay.style.opacity = 0.95;
-          nextOverlay.style.backgroundColor = '#000';
+          nextOverlay.style.opacity = 0.9;
         }
       }
       
