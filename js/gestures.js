@@ -4,8 +4,31 @@ document.addEventListener("DOMContentLoaded", function() {
       previousLink = document.querySelector('.previous a'),
       nextLink = document.querySelector('.next a'),
       screenshot = document.querySelector('.screenshot'),
+      overlayNotes = document.querySelector('.overlayNotes'),
       previousOverlay = document.querySelector('.previousOverlay'),
       nextOverlay = document.querySelector('.nextOverlay');
+      
+  // Determine if touch events are supported
+  // detection code from: https://github.com/Modernizr/Modernizr/blob/9dad6bb4f042e21730b0136d7407b9465bea16c6/feature-detects/touchevents.js
+  var hasTouchSupport = false;
+  if(('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
+    hasTouchSupport = true;
+  }
+
+  // Determine the current page path
+  // from: http://stackoverflow.com/questions/4497531/javascript-get-url-path
+  var testAnchor = document.createElement('a');
+  testAnchor.href = document.URL;
+  var currentPath = testAnchor.pathname;
+  
+  // Display swipe tooltip if touch support is available (on the home page only)
+  if(hasTouchSupport && currentPath === '/') {
+    overlayNotes.style.display = 'block';
+    // fade out after 1 second
+    setTimeout(function() {
+      overlayNotes.style.opacity = 0;
+    }, 1000);
+  }
 
   var cssPropNamePrefixes = ['O', 'MS', 'Moz', 'Webkit'];
 
@@ -29,14 +52,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
   var transitionCSSPropName = getCSSPropertyName('transition');
   var transformCSSPropName = getCSSPropertyName('transform');
-  
-  var animationNameCSSPropName = getCSSPropertyName('animation-name');
-  if(previousLink) {
-    previousOverlay.style[animationNameCSSPropName] = 'bouncePreviousOverlay';
-  }
-  if(nextLink) {
-    nextOverlay.style[animationNameCSSPropName] = 'bounceNextOverlay';
-  }
 
   var startX, startY;
   var hChange = 0, vChange = 0;
@@ -70,15 +85,17 @@ document.addEventListener("DOMContentLoaded", function() {
       startX = evt.clientX;
       startY = evt.clientY;
     }
+    
+    // Remove overlayNotes
+    overlayNotes.style.display = 'none';
 
     // Start page navigation drag tracking
     swipePane.addEventListener(evt.type == 'touchstart' ? 'touchmove' : 'mousemove', moveHandler);
   }
-
+  
   function moveHandler(evt) {
     if(navState === 1) { // started state
       navState = 2; // running state
-      previousOverlay.style[animationNameCSSPropName] = nextOverlay.style[animationNameCSSPropName] = null; // break bounce
       swipePane.addEventListener(evt.type == 'touchmove' ? 'touchend' : 'mouseup', endHandler);
     } else if(navState !== 2) { // running state
       return;
