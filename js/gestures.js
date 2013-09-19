@@ -14,15 +14,9 @@ document.addEventListener("DOMContentLoaded", function() {
   if(('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
     hasTouchSupport = true;
   }
-
-  // Determine the current page path
-  // from: http://stackoverflow.com/questions/4497531/javascript-get-url-path
-  var testAnchor = document.createElement('a');
-  testAnchor.href = document.URL;
-  var currentPath = testAnchor.pathname;
   
   // Display swipe tooltip if touch support is available (on the home page only)
-  if(hasTouchSupport && currentPath === '/') {
+  if(hasTouchSupport && location.pathname === '/') {
     overlayNotes.style.display = 'block';
     // fade out after 1 second
     setTimeout(function() {
