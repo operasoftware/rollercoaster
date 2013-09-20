@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // fade out after 1 second
     setTimeout(function() {
       overlayNotes.style.opacity = 0;
-    }, 1000);
+    }, 1500);
   }
 
   var cssPropNamePrefixes = ['O', 'MS', 'Moz', 'Webkit'];
