@@ -2,6 +2,7 @@ body {
   background: #0D0D0D url(img-noise-200x200.png) 0 0 repeat;
   color: #ddd;
   font-family: Helvetica, Arial, sans-serif;
+  font-weight: lighter;
 }
 a:focus {
   color: #fff;
@@ -101,7 +102,7 @@ header h1 a, header h1 a:hover {
 }
 .word {
   font-size: 1.3em;
-  line-height: 3;
+  line-height: 3.2;
   height: 60px;
   width: 90px;
   display: inline-block;
