@@ -1,5 +1,6 @@
 ---
 layout: post
+name: CSS-Tricks
 image: csstricks.jpg
 website: www.css-tricks.com
 ---

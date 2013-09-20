@@ -62,6 +62,6 @@ layout: default
 
 <div class="row">
   <footer class="col-sm-8 col-sm-offset-2">
-    Review © 2013 Opera Software ASA. Licensed for use under <a href="http://creativecommons.org/licenses/by/3.0/" rel="license">CC BY 3.0</a>. / {% for post in paginator.posts %}{% if post.copy %} Screenshot {{ post.copy }} {% else %} All featured site content is the property of its respective owner.{% endif %}{% endfor %}
+    Review © 2013 Opera Software ASA. Licensed for use under <a href="http://creativecommons.org/licenses/by/3.0/" rel="license">CC BY 3.0</a>. <br> {% for post in paginator.posts %}{% if post.copy %} {{ post.name }} content {{ post.copy }} {% else %} All featured site content is the property of its respective owner.{% endif %}{% endfor %}
   </footer>
 </div>
