@@ -17,9 +17,10 @@ If you want to contribute your own reviews, just follow these steps:
 3. Navigate to `_posts` and create a new Markdown file. It must start with 3 lines of YAML metadata: 
 	- `---`
 	- `layout: post` → just copy this as is
+	- `name: Site Name` → enter the full name of the site.
 	- `image: sitename.png` → replace `sitename.png` with the name of the image you've placed in the `postimages` folder. 
 	- `website: www.sitename.com` → the URL of the website you've reviewed, without protocol.
-	- `copy: © 2013 sitename` → the copyright notice on the website you've reviewed. Don't include if there is no copyright notice to be seen.
+	- `copy: © 2013 site owner etc.` → the copyright notice on the website you've reviewed. Don't include if there is no copyright notice shown.
 	- `---`
 4. Below the YAML metadata, you write your review in Markdown syntax, and save the file with a file name in the following format: `yyyy-mm-dd-sitename.md`
 5. Once all that is done, do a pull request to get it added to master.
