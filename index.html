@@ -3,65 +3,65 @@ layout: default
 ---
 <div id="swipePane" class="row">
 
-  <div class="col-sm-2 col-xs-6">
-  {% if paginator.previous_page %}
-    <div class="previous">
-      {% if paginator.previous_page == 1 %}
-        <a href="{{ site.baseurl }}/"><span class="word">prev<span>ious</span></span></a>
-      {% else %}
-        <a href="{{ site.baseurl }}{{ paginator.previous_page_path }}"><span class="word">prev<span>ious</span></span></a>
-      {% endif %}
-    </div>
-  {% else %}
-    <div class="previous">
-      <span class="disabled">
-        <span class="word">prev<span>ious</span></span>
-      </span>
-    </div>
-  {% endif %}
-  </div>
+	<div class="col-sm-2 col-xs-6">
+	{% if paginator.previous_page %}
+		<div class="previous">
+			{% if paginator.previous_page == 1 %}
+				<a href="{{ site.baseurl }}/"><span class="word">prev<span>ious</span></span></a>
+			{% else %}
+				<a href="{{ site.baseurl }}{{ paginator.previous_page_path }}"><span class="word">prev<span>ious</span></span></a>
+			{% endif %}
+		</div>
+	{% else %}
+		<div class="previous">
+			<span class="disabled">
+				<span class="word">prev<span>ious</span></span>
+			</span>
+		</div>
+	{% endif %}
+	</div>
 
-  <div class="col-sm-2 col-sm-push-8 col-xs-6">
-  {% if paginator.next_page %}
-    <div class="next">
-      <a href="{{ site.baseurl }}{{ paginator.next_page_path }}"><span class="word">next</span> </a>
-    </div>
-  {% else %}
-    <div class="next">
-      <span class="disabled">
-        <span class="word">next</span>
-      </span>
-    </div>
-  {% endif %}
-  </div>
+	<div class="col-sm-2 col-sm-push-8 col-xs-6">
+	{% if paginator.next_page %}
+		<div class="next">
+			<a href="{{ site.baseurl }}{{ paginator.next_page_path }}"><span class="word">next</span> </a>
+		</div>
+	{% else %}
+		<div class="next">
+			<span class="disabled">
+				<span class="word">next</span>
+			</span>
+		</div>
+	{% endif %}
+	</div>
 
-  <main class="col-sm-8 col-sm-pull-2">
-  {% for post in paginator.posts %}
-    <article>
-      <figure id="screenshotContainer">
-        <a href="http://{{ post.website }}/"><img src="{{ site.baseurl }}/postimages/{{ post.image }}" alt="Screenshot of {{ post.website }}" class="screenshot"></a>
-        <i class="previousOverlay"></i>
-        <i class="nextOverlay"></i>
-        <div class="overlayNotes">pull left to navigate &larr;</div>
-      </figure>
-      <div id="content">
-        <section id="site">Featured site: <a href="http://{{ post.website }}/">{{ post.website }}</a></section>
-        <section id="commentary">
-        {{ post.content }}
-        </section>
-        <section id="meta">
-        <p id="contribute" class="pull-left"><a href="https://github.com/operasoftware/rollercoaster/blob/master/README.md">Submit</a> a site!</p>
-        <p id="permalink" class="pull-right"><a href="{{ site.baseurl }}{{ post.url }}" title="permalink" rel="bookmark"># {{ post.date| date: "%Y-%m-%d" }}</a></p>
-        </section>
-        <div class="clearfix"></div>
-      </div>
-    </article>
-  {% endfor %}
-  </main>
+	<main class="col-sm-8 col-sm-pull-2">
+	{% for post in paginator.posts %}
+		<article>
+			<figure id="screenshotContainer">
+				<a href="http://{{ post.website }}/"><img src="{{ site.baseurl }}/postimages/{{ post.image }}" alt="Screenshot of {{ post.website }}" class="screenshot"></a>
+				<i class="previousOverlay"></i>
+				<i class="nextOverlay"></i>
+				<div class="overlayNotes">pull left to navigate &larr;</div>
+			</figure>
+			<div id="content">
+				<section id="site">Featured site: <a href="http://{{ post.website }}/">{{ post.website }}</a></section>
+				<section id="commentary">
+				{{ post.content }}
+				</section>
+				<section id="meta">
+				<p id="contribute" class="pull-left"><a href="https://github.com/operasoftware/rollercoaster/blob/master/README.md">Submit</a> a site!</p>
+				<p id="permalink" class="pull-right"><a href="{{ site.baseurl }}{{ post.url }}" title="permalink" rel="bookmark"># {{ post.date| date: "%Y-%m-%d" }}</a></p>
+				</section>
+				<div class="clearfix"></div>
+			</div>
+		</article>
+	{% endfor %}
+	</main>
 </div>
 
 <div class="row">
-  <footer class="col-sm-8 col-sm-offset-2">
-    Review © 2013 Opera Software ASA. Licensed for use under <a href="http://creativecommons.org/licenses/by/3.0/" rel="license">CC BY 3.0</a>. <br> {% for post in paginator.posts %}{% if post.copy %} {{ post.name }} content {{ post.copy }} {% else %} All featured site content is the property of its respective owner.{% endif %}{% endfor %}
-  </footer>
+	<footer class="col-sm-8 col-sm-offset-2">
+		Review © 2013 Opera Software ASA. Licensed for use under <a href="http://creativecommons.org/licenses/by/3.0/" rel="license">CC BY 3.0</a>. <br> {% for post in paginator.posts %}{% if post.copy %} {{ post.name }} content {{ post.copy }} {% else %} All featured site content is the property of its respective owner.{% endif %}{% endfor %}
+	</footer>
 </div>
