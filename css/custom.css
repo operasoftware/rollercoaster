@@ -137,25 +137,28 @@ header h1 a, header h1 a:hover {
 
 /* /navigation buttons */
 
-.screenshot {width: 100%; max-width: 768px;}
-
-@media (width: 768px) {
-	.screenshot {height: 627px;} /* avoiding reflow while image is loading on iPad */
+.screenshot {
+	width: 100%;
 }
-@media (width: 1024px) {
-	.screenshot {height: 822px;} /* avoiding reflow while image is loading on iPad */
+@media (min-width: 768px) {
+	.screenshot {
+		height: 627px; /* avoid reflow */
+	} 
 }
-
+@media (min-width: 992px) {
+	.screenshot {
+		height: 822px; /* avoid reflow */
+	}
+}
 @media (min-width: 1200px) {
 	.screenshot {
 		width: 768px;
+		height: 1024px; /* avoid reflow */
 		position: relative;
 		left: 0;
 	}
-
-	/* Fix container to allow full-width screenshot to fit */
 	.page main {
-		padding: 6px;
+		padding: 6px; /* Fix container to allow full-width screenshot to fit */
 	}
 }
 article {
