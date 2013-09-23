@@ -5,10 +5,10 @@ layout: default
 	<main class="col-sm-8 col-sm-offset-2">
 		<article>
 			<figure id="screenshotContainer">
-				<a href="http://{{ page.website }}/"><img src="{{ site.baseurl }}/postimages/{{ page.image }}" alt="Screenshot of {{ page.website }}" class="screenshot"></a>
+				<a href="{{ page.website }}"><img src="{{ site.baseurl }}/postimages/{{ page.image }}" alt="Screenshot of {{ page.name }}" class="screenshot"></a>
 			</figure>
 			<div id="content">
-				<section id="site">Featured site: <a href="http://{{ page.website }}/">{{ page.website }}</a></section>
+				<section id="site">Featured site: <a href="{{ page.website }}/">{{ page.name }}</a></section>
 				<section id="commentary">
 					{{ content }}
 				</section>
