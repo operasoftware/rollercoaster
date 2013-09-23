@@ -241,12 +241,14 @@ article a, article a:hover {
 	text-align: center;
 	font-style: italic;
 	font-size: 0.9em;
+	border-bottom: 1px solid #222;
+	padding-bottom: 1em;
 }
 
 #meta {
 	border-top: 1px solid #222;
-	margin-top: 0.5em;
-	padding-top: 0.5em;
+	margin-top: 1em;
+	padding-top: 1em;
 	width: 100%;
 }
 
@@ -255,9 +257,9 @@ article a, article a:hover {
 }
 footer {
 	margin: 0.5em 0 1em 0;
-	text-align: left;
-	color: #333;
+	text-align: right;
+	color: #444;
 }
 footer a, footer a:hover {
-	color: #333;
+	color: #444;
 }
