@@ -17,11 +17,17 @@ document.addEventListener("DOMContentLoaded", function() {
   
   // Display swipe tooltip if touch support is available (on the home page only)
   if(hasTouchSupport && location.pathname === '/') {
-    overlayNotes.style.display = 'block';
-    // fade out after 1 second
-    setTimeout(function() {
-      overlayNotes.style.opacity = 0;
-    }, 1500);
+    
+    // Display on image load
+    screenshot.addEventListener('load', function() {
+      overlayNotes.style.display = 'block';
+      
+      // fade out after 1 second
+      setTimeout(function() {
+        overlayNotes.style.opacity = 0;
+      }, 1000);
+    });
+    
   }
 
   var cssPropNamePrefixes = ['O', 'MS', 'Moz', 'Webkit'];
