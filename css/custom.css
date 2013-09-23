@@ -160,6 +160,9 @@ header h1 a, header h1 a:hover {
 	.page main {
 		padding: 6px; /* Fix container to allow full-width screenshot to fit */
 	}
+	body:not(.page) main article {
+		overflow: visible;
+	}
 }
 article {
 	font-size: 1.3em;
